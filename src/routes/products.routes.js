@@ -1,8 +1,9 @@
 import {Router} from "express";
-import { getAll,getOne,insertOne,deleteOne,updateOne } from "../controllers/products.controler.js";
+import { getAll,getOne,insertOne,deleteOne,updateOne, routeHome, routeComida } from "../controllers/products.controler.js";
 
 const router = Router();
-router.get("/", getAll); 
+router.get("/", routeHome);
+router.get("/comida", routeComida);
 router.get("/:barcode", getOne); 
 
 router.post("/", insertOne);

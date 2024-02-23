@@ -68,3 +68,26 @@ export const updateOne = (req, res) => {
     })
     .catch((err) => res.json({ status: "Server Unavailable" }));
 };
+
+
+export const routeHome=(req,res)=>{
+  productDAO.getAll()
+    .then(products => {
+      res.render('../src/views/index', { products });
+    })
+    .catch(err => res.json({
+      status: "Server unavailable",
+      error: err
+    }));
+}
+
+export const routeComida=(req,res)=>{
+  productDAO.getAll()
+    .then(products => {
+      res.render('../src/views/comida', { products });
+    })
+    .catch(err => res.json({
+      status: "Server unavailable",
+      error: err
+    }));
+}

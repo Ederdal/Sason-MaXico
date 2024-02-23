@@ -120,8 +120,8 @@
             
         </div>
         <div data-role="content">
-            <form action="/" method="post">
-                <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código de barras" value="" class="ui-input-text">
+            <form action="/" method="post" onsubmit="return validateForm()">
+                <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código" value="" class="ui-input-text">
                 <input type="text" name="name" id="txt_name" placeholder="Nombre" value="" class="ui-input-text">
                 <input type="text" name="description" id="txt_description" placeholder="Descripción" value="" class="ui-input-text">
                 <input type="number" name="price" id="txt_price" placeholder="Precio" value="" class="ui-input-text">
@@ -173,13 +173,23 @@
             <h3 style="color: #fff;">Disfruta La comida</h3>
         </div>
     </div>
-
     <div data-role="footer">
         <h5>Departamento por Edgar Cruz Salas</h5>
     </div>
-</div>
 
+    <script>
+        function validateForm() {
+            var barcode = document.getElementById("txt_codigo_barras").value;
+            var name = document.getElementById("txt_name").value;
+            var description = document.getElementById("txt_description").value;
+            var price = document.getElementById("txt_price").value;
 
-
+            if (barcode === "" || name === "" || description === "" || price === "") {
+                alert("Por favor complete todos los campos.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

@@ -22,7 +22,7 @@
 
     <div data-role="content">
         <form id="editForm" action="/<%= product.barcode %>" method="PUT">
-            <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código de barras" value="<%= product.barcode %>" readonly>
+            <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código" value="<%= product.barcode %>" readonly>
             <input type="text" name="name" id="txt_name" placeholder="Nombre" value="<%= product.name %>">
             <input type="text" name="description" id="txt_description" placeholder="Descripción" value="<%= product.description %>">
             <input type="number" name="price" id="txt_price" placeholder="Precio" value="<%= product.price %>">

@@ -1,0 +1,91 @@
+/* Estilo para las tarjetas */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.ui-content {
+    padding: 15px;
+}
+
+.ui-input-text {
+    margin-bottom: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    width: calc(45% - 20px);
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-content {
+    padding-bottom: 10px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.card-actions {
+    text-align: center;
+}
+
+.card-actions a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card-actions a:hover {
+    background-color: #45a049;
+}
+
+.ui-footer {
+    text-align: center;
+    padding: 10px;
+    color: #666;
+}
+
+.ui-navbar li a {
+    color: #666 !important;
+}
+
+.ui-navbar li a:hover {
+    background-color: #f0f0f0 !important;
+}

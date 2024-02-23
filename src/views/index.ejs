@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Tienda de abarrotes</title>
+    <style>
+        /* Estilo para las tarjetas */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .ui-content {
+            padding: 15px;
+        }
+
+        .ui-input-text {
+            margin-bottom: 10px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .card {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            width: calc(45% - 20px);
+            max-width: 400px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .card-content {
+            padding-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .card p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .card-actions {
+            text-align: center;
+        }
+
+        .card-actions a {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-actions a:hover {
+            background-color: #45a049;
+        }
+
+        .ui-footer {
+            text-align: center;
+            padding: 10px;
+            color: #666;
+        }
+
+        .ui-navbar li a {
+            color: #666 !important;
+        }
+
+        .ui-navbar li a:hover {
+            background-color: #f0f0f0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="home">
+        <div data-role="header" data-position="fixed">
+            <!-- Logo -->
+            <div style="display: flex; justify-content: center;">
+                <img src="https://th.bing.com/th/id/OIG1.9cRa.mXCW6uNfpNaqJ0d?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Logo" style="max-width: 30px; height: auto;">
+            </div>
+                     
+
+            <h1 style="color: #333;">Abarrotes doña Pelos</h1>
+            <div data-role="navbar" style="background-color: black;">
+                <ul>
+                    <li><a href="#home" data-icon="home" style="color: black;">Home</a></li>
+                    <li><a href="#pagina2" data-icon="shop" style="color: black;">Comida</a></li>
+                    <li><a href="#pagina3" data-icon="user" style="color: black;">Empleados</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div data-role="content">
+            <form action="/" method="post">
+                <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código de barras" value="" class="ui-input-text">
+                <input type="text" name="name" id="txt_name" placeholder="Nombre" value="" class="ui-input-text">
+                <input type="text" name="description" id="txt_description" placeholder="Descripción" value="" class="ui-input-text">
+                <input type="number" name="price" id="txt_price" placeholder="Precio" value="" class="ui-input-text">
+                <label for="flip-2">Status:</label>
+                <select name="status" id="flip-2" data-role="slider">
+                    <option value="0">Inactivo</option>
+                    <option value="1">Activo</option>
+                </select>
+                <input type="submit" value="Submit" class="ui-btn" style="background-color: #4CAF50;">
+            </form>
+        </div>
+        <div data-role="footer">
+            <h5>Depelotment by Edgar Cruz Salas</h5>
+        </div>
+    </div>
+
+    <!-- Página 2 -->
+    <div data-role="page" id="pagina2">
+        <div data-role="header" data-theme="b" data-position="fixed" style="max-width: 100%;">
+                    
+            <h1 style="color: #fff;">Disfruta la comida</h1>
+            <div data-role="navbar" style="max-width: 100%; max-height: 10px;">
+
+                <ul>
+                    <li><a href="#home" data-icon="home" style="color: #fff;">Home</a></li>
+                    <li><a href="#pagina2" data-icon="shop" style="color: #fff;">Comida</a></li>
+                    <li><a href="#pagina3" data-icon="user" style="color: #fff;">Empleados</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p style="color: #333;">Bienvenido!!!!</p>
+            <div class="card-container">
+                <% products.forEach((product) => { %>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><%= product.name %></h3>
+                            <p><strong>Descripción:</strong> <%= product.description %></p>
+                            <p><strong>Precio:</strong> <%= product.price %></p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="/<%= product.barcode %>" class="ui-btn" style="background-color: #4CAF50;">Editar</a>
+                            <a href="/delete/<%= product.barcode %>" class="ui-btn" style="background-color: #f44336;">Eliminar</a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+        <div data-role="footer" data-theme="b">
+            <h3 style="color: #fff;">Disfruta La comida</h3>
+        </div>
+    </div>
+
+
+
+    <div data-role="footer">
+        <h5>Departamento por Edgar Cruz Salas</h5>
+    </div>
+</div>
+
+
+
+</body>
+</html>
